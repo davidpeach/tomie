@@ -7,6 +7,14 @@
  * @since 1.0.0
  */
 
-$discussion = ! is_page() && twentynineteen_can_show_post_thumbnail() ? twentynineteen_get_discussion_data() : null; ?>
+$discussion = ! is_page() && tomie_can_show_post_thumbnail() ? tomie_get_discussion_data() : null;
 
-<?php single_tag_title( '<h1 class="entry-title">Tag: ', '</h1>' ); ?>
+$term = get_queried_object();
+?>
+<h1 class="entry-title">
+	<?php single_tag_title( 'Tag: '); ?>
+</h1>
+<?php
+if ($blurb = get_field('blurb', $term)) {
+	echo "<p class='blurb has-large-font-size'>" . $blurb . "</p>";
+}

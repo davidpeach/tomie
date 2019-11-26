@@ -61,6 +61,9 @@
 
 		color: $color__text-light;
 		font-weight: 500;
+		background-color: #111;
+	    padding: .5rem 2rem .5rem 1rem;
+	    display: inline-block;
 
 		> span {
 
@@ -301,4 +304,21 @@
 			}
 		}
 	}
+}
+
+.blurb {
+	color: #fff;
+	border-left: .5px solid #fff;
+	padding-left: 1em;
+	font-size: 1em;
+	background-color: rgba(#000, .4);
+
+	@media(min-width: 48rem) {
+		font-size: 1.2em;
+	}
+
+	@media(min-width: 70rem) {
+		font-size: 1.5em;
+	}
+
 }

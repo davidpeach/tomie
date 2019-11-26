@@ -1,0 +1,33 @@
+
+
+// Hammer House of Horror
+.tag-hammer-house-of-horror.image-filters-enabled .site-header.featured-image .site-featured-image:after,
+.image-filters-enabled .entry.tag-hammer-house-of-horror .post-thumbnail-inner:after,
+.tag-hammer-house-of-horror .button, button, input[type=button], input[type=reset], input[type=submit] {
+	background-color: darkred;
+}
+.tag-hammer-house-of-horror a {
+	color: darkred;
+}
+
+// Horror
+.tag-horror.image-filters-enabled .site-header.featured-image .site-featured-image:after,
+.tag-horror.image-filters-enabled .entry.tag-horror .post-thumbnail:before,
+.tag-horror.image-filters-enabled .entry.tag-horror .post-thumbnail-inner:after,
+.image-filters-enabled .entry.tag-horror .post-thumbnail:after,
+.tag-horror .button, button, input[type=button], input[type=reset], input[type=submit] {
+	background-color: darkred;
+}
+.tag-horror a {
+	color: darkred;
+}
+
+// PS4
+.tag-ps4.image-filters-enabled .site-header.featured-image .site-featured-image:after,
+.image-filters-enabled .entry.tag-ps4 .post-thumbnail:after,
+.tag-ps4 .button, button, input[type=button], input[type=reset], input[type=submit] {
+	background-color: #003791;
+}
+.tag-ps4 a {
+	color: #003791;
+}

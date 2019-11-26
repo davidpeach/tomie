@@ -12,7 +12,7 @@
  *
  * @param WP_Customize_Manager $wp_customize Theme Customizer object.
  */
-function twentynineteen_customize_register( $wp_customize ) {
+function tomie_customize_register( $wp_customize ) {
 	$wp_customize->get_setting( 'blogname' )->transport         = 'postMessage';
 	$wp_customize->get_setting( 'blogdescription' )->transport  = 'postMessage';
 	$wp_customize->get_setting( 'header_textcolor' )->transport = 'postMessage';
@@ -22,14 +22,14 @@ function twentynineteen_customize_register( $wp_customize ) {
 			'blogname',
 			array(
 				'selector'        => '.site-title a',
-				'render_callback' => 'twentynineteen_customize_partial_blogname',
+				'render_callback' => 'tomie_customize_partial_blogname',
 			)
 		);
 		$wp_customize->selective_refresh->add_partial(
 			'blogdescription',
 			array(
 				'selector'        => '.site-description',
-				'render_callback' => 'twentynineteen_customize_partial_blogdescription',
+				'render_callback' => 'tomie_customize_partial_blogdescription',
 			)
 		);
 	}
@@ -42,7 +42,7 @@ function twentynineteen_customize_register( $wp_customize ) {
 		array(
 			'default'           => 'default',
 			'transport'         => 'postMessage',
-			'sanitize_callback' => 'twentynineteen_sanitize_color_option',
+			'sanitize_callback' => 'tomie_sanitize_color_option',
 		)
 	);
 
@@ -50,10 +50,10 @@ function twentynineteen_customize_register( $wp_customize ) {
 		'primary_color',
 		array(
 			'type'     => 'radio',
-			'label'    => __( 'Primary Color', 'twentynineteen' ),
+			'label'    => __( 'Primary Color', 'tomie' ),
 			'choices'  => array(
-				'default' => _x( 'Default', 'primary color', 'twentynineteen' ),
-				'custom'  => _x( 'Custom', 'primary color', 'twentynineteen' ),
+				'default' => _x( 'Default', 'primary color', 'tomie' ),
+				'custom'  => _x( 'Custom', 'primary color', 'tomie' ),
 			),
 			'section'  => 'colors',
 			'priority' => 5,
@@ -75,7 +75,7 @@ function twentynineteen_customize_register( $wp_customize ) {
 			$wp_customize,
 			'primary_color_hue',
 			array(
-				'description' => __( 'Apply a custom color for buttons, links, featured images, etc.', 'twentynineteen' ),
+				'description' => __( 'Apply a custom color for buttons, links, featured images, etc.', 'tomie' ),
 				'section'     => 'colors',
 				'mode'        => 'hue',
 			)
@@ -95,20 +95,20 @@ function twentynineteen_customize_register( $wp_customize ) {
 	$wp_customize->add_control(
 		'image_filter',
 		array(
-			'label'   => __( 'Apply a filter to featured images using the primary color', 'twentynineteen' ),
+			'label'   => __( 'Apply a filter to featured images using the primary color', 'tomie' ),
 			'section' => 'colors',
 			'type'    => 'checkbox',
 		)
 	);
 }
-add_action( 'customize_register', 'twentynineteen_customize_register' );
+add_action( 'customize_register', 'tomie_customize_register' );
 
 /**
  * Render the site title for the selective refresh partial.
  *
  * @return void
  */
-function twentynineteen_customize_partial_blogname() {
+function tomie_customize_partial_blogname() {
 	bloginfo( 'name' );
 }
 
@@ -117,25 +117,25 @@ function twentynineteen_customize_partial_blogname() {
  *
  * @return void
  */
-function twentynineteen_customize_partial_blogdescription() {
+function tomie_customize_partial_blogdescription() {
 	bloginfo( 'description' );
 }
 
 /**
  * Bind JS handlers to instantly live-preview changes.
  */
-function twentynineteen_customize_preview_js() {
-	wp_enqueue_script( 'twentynineteen-customize-preview', get_theme_file_uri( '/js/customize-preview.js' ), array( 'customize-preview' ), '20181231', true );
+function tomie_customize_preview_js() {
+	wp_enqueue_script( 'tomie-customize-preview', get_theme_file_uri( '/js/customize-preview.js' ), array( 'customize-preview' ), '20181231', true );
 }
-add_action( 'customize_preview_init', 'twentynineteen_customize_preview_js' );
+add_action( 'customize_preview_init', 'tomie_customize_preview_js' );
 
 /**
  * Load dynamic logic for the customizer controls area.
  */
-function twentynineteen_panels_js() {
-	wp_enqueue_script( 'twentynineteen-customize-controls', get_theme_file_uri( '/js/customize-controls.js' ), array(), '20181231', true );
+function tomie_panels_js() {
+	wp_enqueue_script( 'tomie-customize-controls', get_theme_file_uri( '/js/customize-controls.js' ), array(), '20181231', true );
 }
-add_action( 'customize_controls_enqueue_scripts', 'twentynineteen_panels_js' );
+add_action( 'customize_controls_enqueue_scripts', 'tomie_panels_js' );
 
 /**
  * Sanitize custom color choice.
@@ -144,7 +144,7 @@ add_action( 'customize_controls_enqueue_scripts', 'twentynineteen_panels_js' );
  *
  * @return string
  */
-function twentynineteen_sanitize_color_option( $choice ) {
+function tomie_sanitize_color_option( $choice ) {
 	$valid = array(
 		'default',
 		'custom',

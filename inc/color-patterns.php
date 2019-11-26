@@ -3,14 +3,14 @@
  * Twenty Nineteen: Color Patterns
  *
  * @package WordPress
- * @subpackage TwentyNineteen
+ * @subpackage tomie
  * @since 1.0
  */
 
 /**
  * Generate the CSS for the current primary color.
  */
-function twentynineteen_custom_colors_css() {
+function tomie_custom_colors_css() {
 
 	$primary_color = 199;
 	if ( 'default' !== get_theme_mod( 'primary_color', 'default' ) ) {
@@ -24,7 +24,7 @@ function twentynineteen_custom_colors_css() {
 	 *
 	 * @param int $saturation Color saturation level.
 	 */
-	$saturation = apply_filters( 'twentynineteen_custom_colors_saturation', 100 );
+	$saturation = apply_filters( 'tomie_custom_colors_saturation', 100 );
 	$saturation = absint( $saturation ) . '%';
 
 	/**
@@ -34,7 +34,7 @@ function twentynineteen_custom_colors_css() {
 	 *
 	 * @param int $saturation_selection Selection color saturation level.
 	 */
-	$saturation_selection = absint( apply_filters( 'twentynineteen_custom_colors_saturation_selection', 50 ) );
+	$saturation_selection = absint( apply_filters( 'tomie_custom_colors_saturation_selection', 50 ) );
 	$saturation_selection = $saturation_selection . '%';
 
 	/**
@@ -44,7 +44,7 @@ function twentynineteen_custom_colors_css() {
 	 *
 	 * @param int $lightness Color lightness level.
 	 */
-	$lightness = apply_filters( 'twentynineteen_custom_colors_lightness', 33 );
+	$lightness = apply_filters( 'tomie_custom_colors_lightness', 33 );
 	$lightness = absint( $lightness ) . '%';
 
 	/**
@@ -54,7 +54,7 @@ function twentynineteen_custom_colors_css() {
 	 *
 	 * @param int $lightness_hover Hover color lightness level.
 	 */
-	$lightness_hover = apply_filters( 'twentynineteen_custom_colors_lightness_hover', 23 );
+	$lightness_hover = apply_filters( 'tomie_custom_colors_lightness_hover', 23 );
 	$lightness_hover = absint( $lightness_hover ) . '%';
 
 	/**
@@ -64,7 +64,7 @@ function twentynineteen_custom_colors_css() {
 	 *
 	 * @param int $lightness_selection Selection color lightness level.
 	 */
-	$lightness_selection = apply_filters( 'twentynineteen_custom_colors_lightness_selection', 90 );
+	$lightness_selection = apply_filters( 'tomie_custom_colors_lightness_selection', 90 );
 	$lightness_selection = absint( $lightness_selection ) . '%';
 
 	$theme_css = '
@@ -267,5 +267,5 @@ function twentynineteen_custom_colors_css() {
 	 * @param int    $primary_color The user's selected color hue.
 	 * @param string $saturation    Filtered theme color saturation level.
 	 */
-	return apply_filters( 'twentynineteen_custom_colors_css', $theme_css, $primary_color, $saturation );
+	return apply_filters( 'tomie_custom_colors_css', $theme_css, $primary_color, $saturation );
 }
